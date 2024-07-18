@@ -11,15 +11,27 @@ const StoreComponent = ({ player, SetOpenStore }) => {
 
   const handlebuy = (e) => {
     const gamepad = {
-      id: e.target.id,
+      id: e.target.dataset.id,
       preco: e.target.dataset.preco,
       level: e.target.dataset.level,
       colors: { main: e.target.dataset.main, screen: e.target.dataset.screen },
     };
 
     player.invetaryGerenate(gamepad);
-    console.log(player);
   };
+
+  const handleEquip = (e) => {
+    const gamepad = {
+      id: e.target.dataset.id,
+      preco: e.target.dataset.preco,
+      level: e.target.dataset.level,
+      colors: { main: e.target.dataset.main, screen: e.target.dataset.screen },
+    };
+
+    player.ChangeGamepad(gamepad);
+  };
+
+  console.log(player._gamepad);
 
   const ItemsColors = Object.values(store.themes_color);
 
@@ -56,7 +68,7 @@ const StoreComponent = ({ player, SetOpenStore }) => {
                   <button
                     className="bg-green-300 text-sm p-1 rounded-md"
                     onClick={handlebuy}
-                    id={items.id}
+                    data-id={items.id}
                     data-screen={items.colors.main}
                     data-main={items.colors.main}
                     data-preco={items.preco}
@@ -71,7 +83,15 @@ const StoreComponent = ({ player, SetOpenStore }) => {
                 )}
               </>
             ) : (
-              <button className="bg-orange-600 text-sm p-1 rounded-md">
+              <button
+                className="bg-orange-600 text-sm p-1 rounded-md"
+                onClick={handleEquip}
+                data-id={items.id}
+                data-screen={items.colors.main}
+                data-main={items.colors.main}
+                data-preco={items.preco}
+                data-level={items.level}
+              >
                 Equipar
               </button>
             )}
