@@ -12,7 +12,7 @@ import { BsFillBackpack2Fill } from "react-icons/bs";
 const InitialGameComponent = ({ cookie, player, Setplayer, mouse }) => {
   const [level, Setlevel] = useState(0);
   const [color, SetColor] = useState("bg-red-400");
-  const [openStore, SetOpenStore] = useState(true);
+  const [openStore, SetOpenStore] = useState(false);
   const [openInventory, SetOpenInventory] = useState(false);
 
   const oddCookie = () => {
@@ -20,11 +20,10 @@ const InitialGameComponent = ({ cookie, player, Setplayer, mouse }) => {
 
     Setplayer(player.clickCookie(1));
 
-    if (player.quantityCookie % 25 == 1) {
+    if (player.quantityCookie % Math.floor(10 + player._level) == 1) {
       Setlevel(Math.round(level + 10));
     }
 
-    console.log(color);
     changeColor();
 
     if (level >= 100) {
