@@ -66,7 +66,7 @@ export default class Store {
         colors: { main: "#1C0A00", screen: "#F3D3BD" },
       },
       10: {
-        id: 1010,
+        id: 5645,
         level: 11,
         preco: 200,
         colors: { main: "#042A2B", screen: "#A2CDB0" },
@@ -126,7 +126,7 @@ export default class Store {
         colors: { main: "#FF847C", screen: "#99B898" },
       },
       20: {
-        id: 2020,
+        id: 3245,
         level: 21,
         preco: 450,
         colors: { main: "#2A363B", screen: "#FECEA8" },

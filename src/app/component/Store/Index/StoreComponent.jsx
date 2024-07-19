@@ -50,7 +50,6 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
         <hr />
         <p>{ConvertCoins(player.money)}</p>
       </div>
-
       {ItemsColors.map((items, index) => (
         <div className="bg-slate-600 p-1 rounded-lg relative" key={items.id}>
           {player.level >= items.level ? (
@@ -63,19 +62,19 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
             main={items.colors.main}
             screen={items.colors.screen}
             items={items}
-          />
+            />
           <div className="flex justify-between items-center p-1">
             {player._invetary.every((e) => !e.id.includes(items.id)) ? (
               <>
                 {player.level >= items.level ? (
                   <button
-                    className="bg-green-300 text-sm p-1 rounded-md"
-                    onClick={handlebuy}
-                    data-id={items.id}
-                    data-screen={items.colors.screen}
-                    data-main={items.colors.main}
-                    data-preco={items.preco}
-                    data-level={items.level}
+                  className="bg-green-300 text-sm p-1 rounded-md"
+                  onClick={handlebuy}
+                  data-id={items.id}
+                  data-screen={items.colors.screen}
+                  data-main={items.colors.main}
+                  data-preco={items.preco}
+                  data-level={items.level}
                   >
                     Comprar
                   </button>
@@ -87,13 +86,13 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
               </>
             ) : (
               <button
-                className="bg-orange-600 text-sm p-1 rounded-md"
-                onClick={handleEquip}
-                data-id={items.id}
-                data-screen={items.colors.screen}
-                data-main={items.colors.main}
-                data-preco={items.preco}
-                data-level={items.level}
+              className="bg-orange-600 text-sm p-1 rounded-md"
+              onClick={handleEquip}
+              data-id={items.id}
+              data-screen={items.colors.screen}
+              data-main={items.colors.main}
+              data-preco={items.preco}
+              data-level={items.level}
               >
                 Equipar
               </button>

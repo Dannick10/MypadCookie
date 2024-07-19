@@ -33,3 +33,13 @@ button{
     transform: translateY(0);
   }
 }
+
+::-webkit-scrollbar-thumb{
+  background-color: #102030;
+  border: 1px solid white;
+  width: 10em;
+}
+
+::-webkit-scrollbar{
+  background-color: #202020;
+}
