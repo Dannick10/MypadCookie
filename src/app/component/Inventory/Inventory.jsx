@@ -1,5 +1,6 @@
 import React from "react";
 import GamepadColor from "../gamepadColor/gamepadColor";
+import Cookiepot from '../../../../public/Cookiepot.svg'
 
 const Inventory = ({ player, SetOpenInventory }) => {
   const itemsIventary = player._invetary;
@@ -37,7 +38,7 @@ const Inventory = ({ player, SetOpenInventory }) => {
             <button
               className="bg-orange-600 text-sm p-1 rounded-md"
               data-id={items.id}
-              data-screen={items.colors.main}
+              data-screen={items.colors.screen}
               data-main={items.colors.main}
               data-preco={items.preco}
               data-level={items.level}

@@ -23,7 +23,7 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
       return;
     }
   };
-  console.log(player)
+  console.log(player);
   const handleEquip = (e) => {
     const gamepad = {
       id: e.target.dataset.id,
@@ -72,7 +72,7 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
                     className="bg-green-300 text-sm p-1 rounded-md"
                     onClick={handlebuy}
                     data-id={items.id}
-                    data-screen={items.colors.main}
+                    data-screen={items.colors.screen}
                     data-main={items.colors.main}
                     data-preco={items.preco}
                     data-level={items.level}
@@ -90,7 +90,7 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
                 className="bg-orange-600 text-sm p-1 rounded-md"
                 onClick={handleEquip}
                 data-id={items.id}
-                data-screen={items.colors.main}
+                data-screen={items.colors.screen}
                 data-main={items.colors.main}
                 data-preco={items.preco}
                 data-level={items.level}
