@@ -10,11 +10,11 @@ import { useEffect, useState } from "react";
 import InitialGameComponent from "@/app/component/InitialGameComponent";
 
 export default function Home() {
-  const [playersBanco, SetplayerBanco] = useState(new Player("Daniel", 24));
+  const [playersBanco, SetplayerBanco] = useState(new Player("Daniel", 24,3,3));
   const [cookie, SetCookie] = useState(new Cookies(imgCookie));
 
   const [mousePosition, SetmousePosition] = useState({ x: 0, y: 0 });
-
+  console.log(playersBanco)
   useEffect(() => {
     const handleMouseMove = (e) => {
       SetmousePosition({ x: e.clientX, y: e.clientY });

@@ -7,12 +7,18 @@ export default class Player {
     level = 1,
     money = 0,
     quantityCookie = 1,
-    invetary =  [],
+    invetary =  {gamepads:[],joystick:[]},
     gamepad = {
       id: 5055,
       level: 1,
       preco: 1,
       colors: { main: "#593C39", screen: "#D9B1A3" },
+    },
+    joystick = {
+      id: 5055,
+      level: 1,
+      preco: 0,
+      colors: { main: "#593C39", screen: "#D9B1A3" }
     }
   ) {
     this._name = name;
@@ -22,6 +28,7 @@ export default class Player {
     this._quantityCookie = quantityCookie;
     this._invetary = invetary;
     this._gamepad = gamepad;
+    this._joystick = joystick;
   }
 
   get name() {
@@ -48,6 +55,10 @@ export default class Player {
     return this._quantityCookie;
   }
 
+  get joystick() {
+    return this._joystick
+  }
+
   upgradeLevel() {
     return new Player(
       this._name,
@@ -56,7 +67,8 @@ export default class Player {
       this._money,
       this._quantityCookie,
       this._invetary,
-      this._gamepad
+      this._gamepad,
+      this._joystick
     );
   }
 
@@ -68,7 +80,8 @@ export default class Player {
       this._money + val,
       this._quantityCookie,
       this._invetary,
-      this._gamepad
+      this._gamepad,
+      this._joystick
     );
   }
 
@@ -81,7 +94,8 @@ export default class Player {
       this._money - val,
       this._quantityCookie,
       this._invetary,
-      this._gamepad
+      this._gamepad,
+      this._joystick
     );
   }
 
@@ -105,12 +119,13 @@ export default class Player {
       updateMoney,
       this._quantityCookie + val,
       this._invetary,
-      this._gamepad
+      this._gamepad,
+      this._joystick
     );
   };
 
-  invetaryGerenate = (item) => {
-    if (this.invetary.some((e) => e.id.includes(item.id))) {
+  invetaryGerenateGamepad = (item) => {
+    if (this.invetary.gamepads.some((e) => e.id.includes(item.id))) {
       return;
     }
     return new Player(
@@ -119,10 +134,27 @@ export default class Player {
       this._level,
       this._money,
       this._quantityCookie,
-      this._invetary.push(item),
-      this._gamepad
+      this._invetary.gamepads.push(item),
+      this._gamepad,
+      this._joystick
     );
   };
+
+  invetaryGerenateJoystick = (item) => {
+    if (this.invetary.joystick.some((e) => e.id.includes(item.id))) {
+      return;
+    }
+    return new Player(
+      this._name,
+      this._age,
+      this._level,
+      this._money,
+      this._quantityCookie,
+      this._invetary.joystick.push(item),
+      this._gamepad,
+      this._joystick
+    );
+  }
 
   ChangeGamepad = (item) => {
     return new Player(
@@ -132,7 +164,22 @@ export default class Player {
       this._money,
       this._quantityCookie,
       this._invetary,
-      (this._gamepad = item)
+      (this._gamepad = item),
+      this._joystick
     );
   };
+
+
+  changeJoystick = (item) => {
+    return new Player(
+      this._name,
+      this._age,
+      this._level,
+      this._money,
+      this._quantityCookie,
+      this._invetary,
+      this._gamepad,
+      this._joystick = item
+    );
+  }
 }

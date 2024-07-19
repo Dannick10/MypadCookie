@@ -3,7 +3,7 @@ import GamepadColor from "../gamepadColor/gamepadColor";
 import Cookiepot from '../../../../public/Cookiepot.svg'
 
 const Inventory = ({ player, SetOpenInventory }) => {
-  const itemsIventary = player._invetary;
+  const itemsIventary = player._invetary.gamepads;
 
   const handleEquip = (e) => {
     const gamepad = {
