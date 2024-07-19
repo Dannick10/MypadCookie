@@ -7,12 +7,12 @@ export default class Player {
     level = 1,
     money = 0,
     quantityCookie = 1,
-    invetary = [],
+    invetary =  [],
     gamepad = {
-      id: 2020,
+      id: 5055,
       level: 1,
-      preco: 12,
-      colors: { main: "#8C472E", screen: "#B0C1D9" },
+      preco: 1,
+      colors: { main: "#593C39", screen: "#D9B1A3" },
     }
   ) {
     this._name = name;
@@ -71,6 +71,7 @@ export default class Player {
       this._gamepad
     );
   }
+
 
   accMoney(val) {
     return new Player(

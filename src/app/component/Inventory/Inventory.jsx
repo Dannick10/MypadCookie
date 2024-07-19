@@ -16,7 +16,7 @@ const Inventory = ({ player, SetOpenInventory }) => {
   };
 
   return (
-    <div className="absolute top-0 left-0 p-4 rounded-md text-white flex gap-2 overflow-auto w-full z-20 bg-gray-800 openstore">
+    <div className="absolute min-h-full top-0 left-0 p-4 rounded-md text-white flex gap-2 overflow-auto w-full z-20 bg-gray-800 openstore">
       <div>
         <button
           className="px-3 p-2 bg-red-700 rounded-md"

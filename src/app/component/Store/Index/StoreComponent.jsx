@@ -6,7 +6,7 @@ import GamepadColor from "../../gamepadColor/gamepadColor";
 import ConvertCoins from "../../../../../functions/ConvertCoins";
 import { FaLock } from "react-icons/fa";
 
-const StoreComponent = ({ player, SetOpenStore }) => {
+const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
   const [store, SetStore] = useState(new Store());
 
   const handlebuy = (e) => {
@@ -17,9 +17,13 @@ const StoreComponent = ({ player, SetOpenStore }) => {
       colors: { main: e.target.dataset.main, screen: e.target.dataset.screen },
     };
 
-    player.invetaryGerenate(gamepad);
+    if (player._money >= gamepad.preco) {
+      Setplayer(player.accMoney(gamepad.preco));
+      player.invetaryGerenate(gamepad);
+      return;
+    }
   };
-
+  console.log(player)
   const handleEquip = (e) => {
     const gamepad = {
       id: e.target.dataset.id,
@@ -30,8 +34,6 @@ const StoreComponent = ({ player, SetOpenStore }) => {
 
     player.ChangeGamepad(gamepad);
   };
-
-  console.log(player._gamepad);
 
   const ItemsColors = Object.values(store.themes_color);
 
@@ -48,6 +50,7 @@ const StoreComponent = ({ player, SetOpenStore }) => {
         <hr />
         <p>{ConvertCoins(player.money)}</p>
       </div>
+
       {ItemsColors.map((items, index) => (
         <div className="bg-slate-600 p-1 rounded-lg relative" key={items.id}>
           {player.level >= items.level ? (

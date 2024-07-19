@@ -55,7 +55,7 @@ const InitialGameComponent = ({ cookie, player, Setplayer, mouse }) => {
         className="w-full flex items-center flex-col justify-center border-2 rounded-lg bg-slate-800 border-slate-900 relative overflow-hidden"
         style={{background: player._gamepad.colors.screen}}
       >
-        {openStore && <StoreComponent player={player} SetOpenStore={SetOpenStore}/>}
+        {openStore && <StoreComponent player={player} Setplayer={Setplayer} SetOpenStore={SetOpenStore}/>}
         {openInventory && <Inventory player={player} SetOpenInventory={SetOpenInventory}/>}
 
         <div className="w-full h-2 bg-white relative rounded-md overflow-hidden">
