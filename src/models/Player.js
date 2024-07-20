@@ -7,7 +7,7 @@ export default class Player {
     level = 1,
     money = 0,
     quantityCookie = 1,
-    invetary =  {gamepads:[],joystick:[]},
+    invetary = { gamepads: [], joystick: [] },
     gamepad = {
       id: 5055,
       level: 1,
@@ -15,10 +15,17 @@ export default class Player {
       colors: { main: "#593C39", screen: "#D9B1A3" },
     },
     joystick = {
-      id: 'btn-5055',
-        level: 1,
-        preco: 0,
-        colors: { analogic: '#1A1A1A', innerAnalogic: '#2B2B2B', buttonA: '#4A90E2', buttonB: '#50E3C2', buttonX: '#BD10E0', buttonY: '#F5A623' },
+      id: "btn-5055",
+      level: 1,
+      preco: 0,
+      colors: {
+        analogic: "#1A1A1A",
+        innerAnalogic: "#2B2B2B",
+        buttonA: "#4A90E2",
+        buttonB: "#50E3C2",
+        buttonX: "#BD10E0",
+        buttonY: "#F5A623",
+      },
     }
   ) {
     this._name = name;
@@ -56,7 +63,7 @@ export default class Player {
   }
 
   get joystick() {
-    return this._joystick
+    return this._joystick;
   }
 
   upgradeLevel() {
@@ -85,7 +92,6 @@ export default class Player {
     );
   }
 
-
   accMoney(val) {
     return new Player(
       this._name,
@@ -102,13 +108,13 @@ export default class Player {
   clickCookie = (val) => {
     let updateMoney = this._money;
     let updateLevel = this._level;
-    let ranger = 80
+    let ranger = 80;
 
     if (this.quantityCookie % 5 == 1) {
       updateMoney += Math.round(this._money + this._level) / ranger;
     }
 
-    if (this.quantityCookie %  Math.floor(10 + this._level) == 1) {
+    if (this.quantityCookie % Math.floor(10 + this._level) == 1) {
       updateLevel = this._level + 0.1;
     }
 
@@ -154,7 +160,7 @@ export default class Player {
       this._gamepad,
       this._joystick
     );
-  }
+  };
 
   ChangeGamepad = (item) => {
     return new Player(
@@ -169,7 +175,6 @@ export default class Player {
     );
   };
 
-
   changeJoystick = (item) => {
     return new Player(
       this._name,
@@ -179,7 +184,7 @@ export default class Player {
       this._quantityCookie,
       this._invetary,
       this._gamepad,
-      this._joystick = item
+      (this._joystick = item)
     );
-  }
+  };
 }
