@@ -12,8 +12,8 @@ import { BsFillBackpack2Fill } from "react-icons/bs";
 const InitialGameComponent = ({ cookie, player, Setplayer, mouse }) => {
   const [level, Setlevel] = useState(0);
   const [color, SetColor] = useState("bg-red-400");
-  const [openStore, SetOpenStore] = useState(true);
-  const [openInventory, SetOpenInventory] = useState(false)
+  const [openStore, SetOpenStore] = useState(false);
+  const [openInventory, SetOpenInventory] = useState(true)
 
   const oddCookie = () => {
     const updatePlayer = player.clickCookie(1);
@@ -45,12 +45,12 @@ const InitialGameComponent = ({ cookie, player, Setplayer, mouse }) => {
   return (
     <main
       role="game-pad"
-      className="flex flex-col justify-around w-96 h-full border-2 p-2 rounded-lg bg-amber-600 border-orange-800 overflow-hidden"
+      className="flex flex-col justify-around w-96 h-full p-2 rounded-lg bg-amber-600 border-2 border-white overflow-hidden"
       style={{ background: player._gamepad.colors.main }}
     >
       <section
         role="application"
-        className="w-full flex items-center flex-col justify-center border-2 rounded-lg bg-slate-800 border-slate-900 relative overflow-hidden"
+        className="w-full flex items-center flex-col justify-center border-2 rounded-lg bg-slate-800 border-white relative overflow-hidden"
         style={{background: player._gamepad.colors.screen}}
       >
         {openStore && <StoreComponent player={player} Setplayer={Setplayer} SetOpenStore={SetOpenStore}/>}

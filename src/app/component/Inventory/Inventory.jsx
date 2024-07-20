@@ -1,56 +1,90 @@
-import React from "react";
+import React, {useState, useReducer} from "react";
 import GamepadColor from "../gamepadColor/gamepadColor";
-import Cookiepot from '../../../../public/Cookiepot.svg'
+import Cookiepot from "../../../../public/Cookiepot.svg";
+import Store from "@/models/store";
+import ConvertCoins from "../../../../functions/ConvertCoins";
+import GamepadStoreComponent from "../Store/Index/GamepadStoreComponent";
+import JoystickStoreComponent from "../Store/Index/JoystickStoreComponent";
 
-const Inventory = ({ player, SetOpenInventory }) => {
-  const itemsIventary = player._invetary.gamepads;
+const initalState = { category: "Gamepads" };
 
-  const handleEquip = (e) => {
-    const gamepad = {
-      id: e.target.dataset.id,
-      preco: e.target.dataset.preco,
-      level: e.target.dataset.level,
-      colors: { main: e.target.dataset.main, screen: e.target.dataset.screen },
-    };
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "Joystick":
+      return { category: "Joystick" };
+    case "Gamepads":
+      return { category: "Gamepads" };
+  }
+};
 
-    player.ChangeGamepad(gamepad);
-  };
+const Inventory = ({ player, Setplayer, SetOpenInventory}) => {
+
+  const [store, SetStore] = useState(new Store());
+  
+  const [state, dispatch] = useReducer(reducer, initalState)
+  console.log(player)
+
+  const ItemsColors = Object.values(player._invetary.gamepads);
+  const ButtonColors = Object.values(player._invetary.joystick);
 
   return (
-    <div className="absolute min-h-full top-0 left-0 p-4 rounded-md text-white flex gap-2 overflow-auto w-full z-20 bg-gray-800 openstore">
-      <div>
+    <div className="absolute min-h-full p-0.5 rounded-md text-white flex gap-2 overflow-auto w-full z-20 bg-gray-800 openstore">
+      <div  className="sticky top-0 -left-5 p-2 z-10 bg-gray-800">
         <button
-          className="px-3 p-2 bg-red-700 rounded-md"
+          className=" p-2 bg-red-700 rounded-md"
           onClick={() => SetOpenInventory(false)}
         >
           X
         </button>
         <p>Hi,{player.name}</p>
-      </div>
-      {itemsIventary.map((items) => (
-        <div className="bg-slate-600 p-1 rounded-lg relative">
-          <GamepadColor
-            main={items.colors.main}
-            screen={items.colors.screen}
-            items={items}
-          />
-          <div className="flex justify-between items-center p-1">
-            <button
-              className="bg-orange-600 text-sm p-1 rounded-md"
-              data-id={items.id}
-              data-screen={items.colors.screen}
-              data-main={items.colors.main}
-              data-preco={items.preco}
-              data-level={items.level}
-              onClick={handleEquip}
-            >
-              Equipar
-            </button>
-          </div>
+        <p>Seu Inventario</p>
+        <div className="flex flex-col gap-2">
+          <button
+            className="bg-lime-600 p-2 rounded-md transition-all"
+            value={"Gamepads"}
+            onClick={() => dispatch({ type: "Gamepads" })}
+            style={state.category == 'Gamepads' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}
+          >
+            Gamepads
+          </button>
+          <button
+            className="bg-teal-600 p-2 rounded-md transition-all"
+            value={"Joystick"}
+            onClick={() => dispatch({ type: "Joystick" })}
+            style={state.category == 'Joystick' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}
+          >
+            Joystick
+          </button>
         </div>
-      ))}
+      </div>
+      {state.category === "Joystick" ? (
+        <>
+          {ButtonColors.map((items, index) => (
+            <>
+              <JoystickStoreComponent
+                key={`${items.id}-${index}`}
+                items={items}
+                player={player}
+                Setplayer={Setplayer}
+              />
+            </>
+          ))}
+        </>
+      ) : (
+        <>
+          {ItemsColors.map((items, index) => (
+            <GamepadStoreComponent
+              key={`${items.id}-${index}`}
+              items={items}
+              player={player}
+              Setplayer={Setplayer}
+            />
+          ))}
+        </>
+      )}
     </div>
   );
 };
 
-export default Inventory;
+
+export default Inventory

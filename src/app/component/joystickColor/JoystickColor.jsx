@@ -1,8 +1,4 @@
 import React from "react";
-import Cookiepot from "../../../../public/Cookiepot.svg";
-import Cookie from "../../../../public/cookie.png";
-import { IoStorefront } from "react-icons/io5";
-import Image from "next/image";
 
 const JoystickColor = ({ player, items }) => {
   const { id, level, preco, colors } = items;
@@ -10,12 +6,12 @@ const JoystickColor = ({ player, items }) => {
   return (
     <div
       role="game-pad"
-      className="flex flex-col justify-around w-40 h-40 border-2 p-2 rounded-lg overflow-hidden"
+      className="flex flex-col justify-around w-40 h-40 border-2 border-white p-2 rounded-lg overflow-hidden"
       key={id}
       style={{ background: player._gamepad.colors.main }}
     >
       <section
-        className="w-full h-20 bg-gray-700 rounded-md"
+        className="w-full h-20 bg-gray-700  border-2 border-white rounded-md"
         style={{ background: player._gamepad.colors.screen }}
       ></section>
       <footer
