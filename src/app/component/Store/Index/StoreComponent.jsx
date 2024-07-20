@@ -9,6 +9,7 @@ import JoystickColor from "../../joystickColor/JoystickColor";
 
 const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
   const [store, SetStore] = useState(new Store());
+  const [Category, Setcategory] = useState("Gamepads");
 
   const handlebuyGamepad = (e) => {
     const gamepad = {
@@ -79,6 +80,16 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
     player.changeJoystick(joystick);
   };
 
+  const handleChangeCategory = (e) => {
+    console.log(e.target.innerHTML)
+    if(e.target.innerHTML == 'Gamepads'){
+      Setcategory(e.target.innerHTML)
+    } else {
+      Setcategory(e.target.innerHTML)
+
+    }
+  }
+
   const ItemsColors = Object.values(store.themes_color);
   const ButtonColors = Object.values(store.themes_buttons);
   return (
@@ -93,25 +104,69 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
         <p>Hi,{player.name}</p>
         <hr />
         <p>{ConvertCoins(player.money)}</p>
+        <div className="flex flex-col gap-2">
+          <button
+            className="bg-lime-600 p-2 rounded-md"
+            value={"Gamepads"}
+            onClick={handleChangeCategory}
+          >
+            Gamepads
+          </button>
+          <button
+            className="bg-teal-600 p-2 rounded-md"
+            value={"Joystick"}
+            onClick={handleChangeCategory}
+          >
+            Joystick
+          </button>
+        </div>
       </div>
-      {ButtonColors.map((items, index) => (
+      {Category == "Gamepads" ? (
         <>
-          <div className="bg-slate-600 p-1 rounded-lg relative" key={items.id}>
-            {player.level >= items.level ? (
-              false
-            ) : (
-              <FaLock className="absolute -top-2 -right-2 z-20 text-2xl text-red-800 drop-shadow-2xl shadow-white" />
-            )}
-            {<JoystickColor player={player} items={items} />}
-            <div className="flex justify-between items-center p-1">
-              {player._invetary.joystick.every(
-                (e) => !e.id.includes(items.id)
-              ) ? (
-                <>
-                  {player.level >= items.level ? (
+          {ButtonColors.map((items, index) => (
+            <>
+              <div
+                className="bg-slate-600 p-1 rounded-lg relative"
+                key={items.id}
+                id={items}
+              >
+                {player.level >= items.level ? (
+                  false
+                ) : (
+                  <FaLock className="absolute -top-2 -right-2 z-20 text-2xl text-red-800 drop-shadow-2xl shadow-white" />
+                )}
+                {<JoystickColor key={items.id} player={player} items={items} />}
+                <div className="flex justify-between items-center p-1">
+                  {player._invetary.joystick.every(
+                    (e) => !e.id.includes(items.id)
+                  ) ? (
+                    <>
+                      {player.level >= items.level ? (
+                        <button
+                          className="bg-green-300 text-sm p-1 rounded-md"
+                          onClick={handlebuyJoystick}
+                          data-id={items.id}
+                          data-analogic={items.colors.analogic}
+                          data-inneranalogic={items.colors.innerAnalogic}
+                          data-buttona={items.colors.buttonA}
+                          data-buttonb={items.colors.buttonB}
+                          data-buttonx={items.colors.buttonX}
+                          data-buttony={items.colors.buttonY}
+                          data-preco={items.preco}
+                          data-level={items.level}
+                        >
+                          Comprar
+                        </button>
+                      ) : (
+                        <button className="bg-red-500 text-sm p-1 rounded-md">
+                          Level {items.level}
+                        </button>
+                      )}
+                    </>
+                  ) : (
                     <button
-                      className="bg-green-300 text-sm p-1 rounded-md"
-                      onClick={handlebuyJoystick}
+                      className="bg-orange-600 text-sm p-1 rounded-md"
+                      onClick={handleEquipeJoystick}
                       data-id={items.id}
                       data-analogic={items.colors.analogic}
                       data-inneranalogic={items.colors.innerAnalogic}
@@ -122,91 +177,77 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
                       data-preco={items.preco}
                       data-level={items.level}
                     >
-                      Comprar
-                    </button>
-                  ) : (
-                    <button className="bg-red-500 text-sm p-1 rounded-md">
-                      Level {items.level}
+                      Equipar
                     </button>
                   )}
-                </>
-              ) : (
-                <button
-                  className="bg-orange-600 text-sm p-1 rounded-md"
-                  onClick={handleEquipeJoystick}
-                  data-id={items.id}
-                  data-analogic={items.colors.analogic}
-                  data-inneranalogic={items.colors.innerAnalogic}
-                  data-buttona={items.colors.buttonA}
-                  data-buttonb={items.colors.buttonB}
-                  data-buttonx={items.colors.buttonX}
-                  data-buttony={items.colors.buttonY}
-                  data-preco={items.preco}
-                  data-level={items.level}
-                >
-                  Equipar
-                </button>
-              )}
-              <p>{ConvertCoins(items.preco)}</p>
-            </div>
-          </div>
+                  <p>{ConvertCoins(items.preco)}</p>
+                </div>
+              </div>
+            </>
+          ))}
         </>
-      ))}
+      ) : (
+        <>
+          {
+            ItemsColors.map((items, index) => (
+              <div
+                className="bg-slate-600 p-1 rounded-lg relative"
+                key={items.id}
+              >
+                {player.level >= items.level ? (
+                  false
+                ) : (
+                  <FaLock className="absolute -top-2 -right-2 z-20 text-2xl text-red-800 drop-shadow-2xl shadow-white" />
+                )}
 
-      {!ItemsColors.map((items, index) => (
-          <div className="bg-slate-600 p-1 rounded-lg relative" key={items.id}>
-            {player.level >= items.level ? (
-              false
-            ) : (
-              <FaLock className="absolute -top-2 -right-2 z-20 text-2xl text-red-800 drop-shadow-2xl shadow-white" />
-            )}
-
-            <GamepadColor
-              main={items.colors.main}
-              screen={items.colors.screen}
-              items={items}
-            />
-            <div className="flex justify-between items-center p-1">
-              {player._invetary.gamepads.every(
-                (e) => !e.id.includes(items.id)
-              ) ? (
-                <>
-                  {player.level >= items.level ? (
+                <GamepadColor
+                  main={items.colors.main}
+                  screen={items.colors.screen}
+                  items={items}
+                />
+                <div className="flex justify-between items-center p-1">
+                  {player._invetary.gamepads.every(
+                    (e) => !e.id.includes(items.id)
+                  ) ? (
+                    <>
+                      {player.level >= items.level ? (
+                        <button
+                          className="bg-green-300 text-sm p-1 rounded-md"
+                          onClick={handlebuyGamepad}
+                          data-id={items.id}
+                          data-screen={items.colors.screen}
+                          data-main={items.colors.main}
+                          data-preco={items.preco}
+                          data-level={items.level}
+                        >
+                          Comprar
+                        </button>
+                      ) : (
+                        <button className="bg-red-500 text-sm p-1 rounded-md">
+                          Level {items.level}
+                        </button>
+                      )}
+                    </>
+                  ) : (
                     <button
-                      className="bg-green-300 text-sm p-1 rounded-md"
-                      onClick={handlebuyGamepad}
+                      className="bg-orange-600 text-sm p-1 rounded-md"
+                      onClick={handleEquip}
                       data-id={items.id}
                       data-screen={items.colors.screen}
                       data-main={items.colors.main}
                       data-preco={items.preco}
                       data-level={items.level}
                     >
-                      Comprar
-                    </button>
-                  ) : (
-                    <button className="bg-red-500 text-sm p-1 rounded-md">
-                      Level {items.level}
+                      Equipar
                     </button>
                   )}
-                </>
-              ) : (
-                <button
-                  className="bg-orange-600 text-sm p-1 rounded-md"
-                  onClick={handleEquip}
-                  data-id={items.id}
-                  data-screen={items.colors.screen}
-                  data-main={items.colors.main}
-                  data-preco={items.preco}
-                  data-level={items.level}
-                >
-                  Equipar
-                </button>
-              )}
-              <p>{ConvertCoins(items.preco)}</p>
-            </div>
-          </div>
-        ))
-      }
+                  <p>{ConvertCoins(items.preco)}</p>
+                </div>
+              </div>
+            ))
+          }
+        </>
+      )}
     </div>
   );
 };
