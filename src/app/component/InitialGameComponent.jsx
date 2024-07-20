@@ -13,10 +13,7 @@ const InitialGameComponent = ({ cookie, player, Setplayer, mouse }) => {
   const [level, Setlevel] = useState(0);
   const [color, SetColor] = useState("bg-red-400");
   const [openStore, SetOpenStore] = useState(true);
-  const [openInventory, SetOpenInventory] = useState(false);
-
-  const {analogic, innerAnalogic, buttonA, buttonB, buttonX, buttonY} = player._joystick
-
+  const [openInventory, SetOpenInventory] = useState(false)
 
   const oddCookie = () => {
     const updatePlayer = player.clickCookie(1);
@@ -113,27 +110,27 @@ const InitialGameComponent = ({ cookie, player, Setplayer, mouse }) => {
         <div
           role="analogic"
           className="w-32 h-32 bg-zinc-800 rounded-full relative"
-          style={{background:analogic}}
+          style={{background: player._joystick.colors.analogic}}
         >
           <div className="w-[50%] h-[50%] translate-x-[50%] translate-y-[50%]  bg-zinc-900 rounded-full absolute"
-          style={{background: innerAnalogic}}></div>
+          style={{background: player._joystick.colors.innerAnalogic}}></div>
         </div>
         <div className="flex flex-col items-center justify-center w-32">
           <div className="flex items-center justify-center w-full">
-            <div className="bg-orange-600 w-10 h-10 rounded-full items-center justify-center flex" style={{background:buttonY}}>
+            <div className="bg-orange-600 w-10 h-10 rounded-full items-center justify-center flex" style={{background:player._joystick.colors.buttonY}}>
               <p className="text-white">Y</p>
             </div>
           </div>
           <div className="flex items-center justify-between w-full">
-            <div className="bg-red-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:buttonX}}>
+            <div className="bg-red-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:player._joystick.colors.buttonX}}>
               <p className="text-white">X</p>
             </div>
-            <div className="bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:buttonB}}>
+            <div className="bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:player._joystick.colors.buttonB}}>
               <p className="text-white">B</p>
             </div>
           </div>
           <div className="flex items-center justify-center w-full">
-            <div className="bg-green-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:buttonA}}>
+            <div className="bg-green-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:player._joystick.colors.buttonA}}>
               <p className="text-white">A</p>
             </div>
           </div>

@@ -15,10 +15,10 @@ export default class Player {
       colors: { main: "#593C39", screen: "#D9B1A3" },
     },
     joystick = {
-      id: 5055,
-      level: 1,
-      preco: 0,
-      colors: { main: "#593C39", screen: "#D9B1A3" }
+      id: 'btn-5055',
+        level: 1,
+        preco: 0,
+        colors: { analogic: '#1A1A1A', innerAnalogic: '#2B2B2B', buttonA: '#4A90E2', buttonB: '#50E3C2', buttonX: '#BD10E0', buttonY: '#F5A623' },
     }
   ) {
     this._name = name;
