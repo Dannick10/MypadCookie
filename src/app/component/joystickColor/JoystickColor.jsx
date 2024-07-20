@@ -23,7 +23,9 @@ const JoystickColor = ({ player, items }) => {
           className="w-10 h-10 bg-zinc-800 rounded-full relative"
           style={{ background: colors.analogic }}
         >
-          <div className="w-[50%] h-[50%] translate-x-[50%] translate-y-[50%]  bg-zinc-900 rounded-full absolute"></div>
+          <div className="w-[50%] h-[50%] translate-x-[50%] translate-y-[50%]  bg-zinc-900 rounded-full absolute"
+            style={{ background: colors.innerAnalogic }}
+          ></div>
         </div>
         <div className="flex flex-col items-center justify-center w-12">
           <div className="flex items-center justify-center w-full">

@@ -29,7 +29,7 @@ const Inventory = ({ player, Setplayer, SetOpenInventory}) => {
 
   return (
     <div className="absolute min-h-full p-0.5 rounded-md text-white flex gap-2 overflow-auto w-full z-20 bg-gray-800 openstore">
-      <div  className="sticky top-0 -left-5 p-2 z-10 bg-gray-800">
+      <div  className="sticky top-0 -left-1 p-2 z-30 bg-gray-800">
         <button
           className=" p-2 bg-red-700 rounded-md"
           onClick={() => SetOpenInventory(false)}

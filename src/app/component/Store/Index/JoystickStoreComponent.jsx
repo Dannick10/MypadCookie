@@ -1,6 +1,7 @@
 import React from "react";
 import ConvertCoins from "../../../../../functions/ConvertCoins";
 import JoystickColor from "../../joystickColor/JoystickColor";
+import { FaLock } from "react-icons/fa";
 
 const JoystickStoreComponent = ({ items, player, Setplayer }) => {
   const handlebuyJoystick = (e) => {
@@ -52,7 +53,7 @@ const JoystickStoreComponent = ({ items, player, Setplayer }) => {
       {player.level >= items.level ? (
         false
       ) : (
-        <FaLock className="absolute -top-2 -right-2 z-20 text-2xl text-red-800 drop-shadow-2xl shadow-white" />
+        <FaLock className="absolute top-1 -right-2 z-20 text-2xl text-red-800 drop-shadow-2xl shadow-white" />
       )}
       {<JoystickColor key={items.id} player={player} items={items} />}
       <div className="flex justify-between items-center p-1">

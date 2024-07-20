@@ -1,6 +1,7 @@
 import React from "react";
 import ConvertCoins from "../../../../../functions/ConvertCoins";
 import GamepadColor from "../../gamepadColor/gamepadColor";
+import { FaLock } from "react-icons/fa";
 
 const GamepadStoreComponent = ({ items, player, Setplayer }) => {
   const handlebuyGamepad = (e) => {
