@@ -30,7 +30,7 @@ const GamepadStoreComponent = ({ items, player, Setplayer }) => {
       colors: { main: e.target.dataset.main, screen: e.target.dataset.screen },
     };
 
-    player.ChangeGamepad(gamepad);
+    Setplayer((Prevplayer) => Prevplayer.ChangeGamepad(gamepad));
   };
 
   return (

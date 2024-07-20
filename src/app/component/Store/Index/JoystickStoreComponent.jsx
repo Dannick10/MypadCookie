@@ -41,7 +41,7 @@ const JoystickStoreComponent = ({ items, player, Setplayer }) => {
       },
     };
 
-    player.changeJoystick(joystick);
+    Setplayer((prevPlayer) => prevPlayer.changeJoystick(joystick));
   };
 
   return (
