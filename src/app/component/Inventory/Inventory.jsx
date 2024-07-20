@@ -41,7 +41,6 @@ const Inventory = ({ player, Setplayer, SetOpenInventory}) => {
         <div className="flex flex-col gap-2">
           <button
             className="bg-lime-600 p-2 rounded-md transition-all"
-            value={"Gamepads"}
             onClick={() => dispatch({ type: "Gamepads" })}
             style={state.category == 'Gamepads' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}
           >
@@ -49,7 +48,6 @@ const Inventory = ({ player, Setplayer, SetOpenInventory}) => {
           </button>
           <button
             className="bg-teal-600 p-2 rounded-md transition-all"
-            value={"Joystick"}
             onClick={() => dispatch({ type: "Joystick" })}
             style={state.category == 'Joystick' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}
           >

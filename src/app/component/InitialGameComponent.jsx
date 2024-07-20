@@ -8,11 +8,12 @@ import StoreComponent from "./Store/Index/StoreComponent";
 import Inventory from "./Inventory/Inventory";
 import { IoStorefront } from "react-icons/io5";
 import { BsFillBackpack2Fill } from "react-icons/bs";
+import Createuser from "./createuser/Createuser";
 
-const InitialGameComponent = ({ cookie, player, Setplayer }) => {
+const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUser, openUser }) => {
   const [level, Setlevel] = useState(0);
   const [color, SetColor] = useState("bg-red-400");
-  const [openStore, SetOpenStore] = useState(true);
+  const [openStore, SetOpenStore] = useState(false);
   const [openInventory, SetOpenInventory] = useState(false)
 
   const oddCookie = () => {
@@ -57,6 +58,7 @@ const InitialGameComponent = ({ cookie, player, Setplayer }) => {
       >
         {openStore && <StoreComponent player={player} Setplayer={Setplayer} SetOpenStore={SetOpenStore}/>}
         {openInventory && <Inventory player={player} Setplayer={Setplayer} SetOpenInventory={SetOpenInventory}/>}
+        {openUser && <Createuser handleUser={handleUser}/>}
 
         <div className="w-full h-2 bg-white relative rounded-md overflow-hidden">
           <div
