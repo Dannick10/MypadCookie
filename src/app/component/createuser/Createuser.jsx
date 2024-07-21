@@ -19,18 +19,23 @@ const Createuser = ({ handleUser }) => {
   const [state, dispatch] = useReducer(reducer, initalState);
   const [user, Setuser] = useState("");
   const [users, setUsers] = useState([]);
+  const [modalView, SetmodalView] = useState(true)
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    if(storedUsers){
-      dispatch({type: 'exebition'})
-    } else {
-      dispatch({type: 'create'})
-    }
-
     setUsers(storedUsers);
   }, []);
+
+  const handleDelete = (user) => {
+    const storageUsers = JSON.parse(localStorage.getItem("users"));
+    const playerRemove = storageUsers.filter((p) => p._id !== user._id);
+
+    if (playerRemove) {
+      localStorage.setItem("users", JSON.stringify(playerRemove));
+      setUsers(playerRemove);
+    }
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,7 +82,15 @@ const Createuser = ({ handleUser }) => {
         <div className="flex flex-col h-44 gap-1 overflow-auto">
           {users &&
             users.map((user) => (
-              <Users key={user._id} user={user} handleUser={handleUser} />
+              <Users
+                key={user._id}
+                user={user}
+                setUsers={setUsers}
+                handleUser={handleUser}
+                handleDelete={handleDelete}
+                SetmodalView={SetmodalView} 
+                modalView={modalView} 
+              />
             ))}
         </div>
       )}
