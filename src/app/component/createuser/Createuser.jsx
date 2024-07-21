@@ -22,6 +22,13 @@ const Createuser = ({ handleUser }) => {
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    if(storedUsers){
+      dispatch({type: 'exebition'})
+    } else {
+      dispatch({type: 'create'})
+    }
+
     setUsers(storedUsers);
   }, []);
 
@@ -29,7 +36,6 @@ const Createuser = ({ handleUser }) => {
     e.preventDefault();
     const newUser = new Player(
       user,
-      24,
       1,
       0,
       1,

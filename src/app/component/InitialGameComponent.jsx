@@ -8,6 +8,8 @@ import StoreComponent from "./Store/Index/StoreComponent";
 import Inventory from "./Inventory/Inventory";
 import { IoStorefront } from "react-icons/io5";
 import { BsFillBackpack2Fill } from "react-icons/bs";
+import { IoIosSave } from "react-icons/io";
+import { TbCookieManFilled } from "react-icons/tb";
 import Createuser from "./createuser/Createuser";
 
 const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUser, openUser }) => {
@@ -98,6 +100,14 @@ const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUse
 
           <button className="text-xl text-white" onClick={() => SetOpenInventory(true)}>
             <BsFillBackpack2Fill/>
+          </button>
+
+          <button className="text-xl text-white" onClick={() => SetOpenUser(true)}>
+            <IoIosSave/>
+          </button>
+
+          <button className="text-xl text-white" onClick={() => SetOpenUser(true)}>
+            <TbCookieManFilled/>
           </button>
 
           <div className="flex items-center gap-2 text-white font-light">

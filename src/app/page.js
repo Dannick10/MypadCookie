@@ -11,7 +11,7 @@ export default function Home() {
   const [openUser, SetOpenUser] = useState(true)
 
   const [playersBanco, SetplayerBanco] = useState(
-    new Player("Daniel", 24)
+    new Player("Daniel")
   );
   const [cookie, SetCookie] = useState(new Cookies(imgCookie));
 
@@ -21,7 +21,6 @@ export default function Home() {
     SetplayerBanco(
       new Player(
         user._name,
-        user._age,
         user._level,
         user._money,
         user._quantityCookie,

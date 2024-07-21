@@ -3,7 +3,6 @@ import Cookies from "./Cookies";
 export default class Player {
   constructor(
     name,
-    age,
     level = 1,
     money = 0,
     quantityCookie = 1,
@@ -28,8 +27,8 @@ export default class Player {
       },
     }
   ) {
+    this._id =  `${Math.random()*1000}-${name}`
     this._name = name;
-    this._age = age;
     this._level = level;
     this._money = money;
     this._quantityCookie = quantityCookie;
@@ -40,10 +39,6 @@ export default class Player {
 
   get name() {
     return this._name;
-  }
-
-  get age() {
-    return this._age;
   }
 
   get money() {
@@ -69,7 +64,6 @@ export default class Player {
   upgradeLevel() {
     return new Player(
       this._name,
-      this._age,
       this._level + 1,
       this._money,
       this._quantityCookie,
@@ -82,7 +76,6 @@ export default class Player {
   oddMoney(val) {
     return new Player(
       this._name,
-      this._age,
       this._level,
       this._money + val,
       this._quantityCookie,
@@ -95,7 +88,6 @@ export default class Player {
   accMoney(val) {
     return new Player(
       this._name,
-      this._age,
       this._level,
       this._money - val,
       this._quantityCookie,
@@ -120,7 +112,6 @@ export default class Player {
 
     return new Player(
       this._name,
-      this._age,
       updateLevel,
       updateMoney,
       this._quantityCookie + val,
@@ -136,7 +127,6 @@ export default class Player {
     }
     return new Player(
       this._name,
-      this._age,
       this._level,
       this._money,
       this._quantityCookie,
@@ -152,7 +142,6 @@ export default class Player {
     }
     return new Player(
       this._name,
-      this._age,
       this._level,
       this._money,
       this._quantityCookie,
@@ -165,7 +154,6 @@ export default class Player {
   ChangeGamepad = (item) => {
     return new Player(
       this._name,
-      this._age,
       this._level,
       this._money,
       this._quantityCookie,
@@ -178,7 +166,6 @@ export default class Player {
   changeJoystick = (item) => {
     return new Player(
       this._name,
-      this._age,
       this._level,
       this._money,
       this._quantityCookie,
