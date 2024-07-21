@@ -35,6 +35,7 @@ const Createuser = ({ handleUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = new Player(
+      `${Math.random()}-${user}`,
       user,
       1,
       0,

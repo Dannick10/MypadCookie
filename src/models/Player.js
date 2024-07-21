@@ -2,6 +2,7 @@ import Cookies from "./Cookies";
 
 export default class Player {
   constructor(
+    id,
     name,
     level = 1,
     money = 0,
@@ -27,7 +28,7 @@ export default class Player {
       },
     }
   ) {
-    this._id =  `${Math.random()*1000}-${name}`
+    this._id =  id
     this._name = name;
     this._level = level;
     this._money = money;
@@ -63,6 +64,7 @@ export default class Player {
 
   upgradeLevel() {
     return new Player(
+      this._id,
       this._name,
       this._level + 1,
       this._money,
@@ -75,6 +77,7 @@ export default class Player {
 
   oddMoney(val) {
     return new Player(
+      this._id,
       this._name,
       this._level,
       this._money + val,
@@ -87,6 +90,7 @@ export default class Player {
 
   accMoney(val) {
     return new Player(
+      this._id,
       this._name,
       this._level,
       this._money - val,
@@ -111,6 +115,7 @@ export default class Player {
     }
 
     return new Player(
+      this._id,
       this._name,
       updateLevel,
       updateMoney,
@@ -126,6 +131,7 @@ export default class Player {
       return;
     }
     return new Player(
+      this._id,
       this._name,
       this._level,
       this._money,
@@ -141,6 +147,7 @@ export default class Player {
       return;
     }
     return new Player(
+      this._id,
       this._name,
       this._level,
       this._money,
@@ -153,6 +160,7 @@ export default class Player {
 
   ChangeGamepad = (item) => {
     return new Player(
+      this._id,
       this._name,
       this._level,
       this._money,
@@ -165,6 +173,7 @@ export default class Player {
 
   changeJoystick = (item) => {
     return new Player(
+      this._id,
       this._name,
       this._level,
       this._money,

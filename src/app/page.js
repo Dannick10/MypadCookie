@@ -20,6 +20,7 @@ export default function Home() {
 
     SetplayerBanco(
       new Player(
+        user._id,
         user._name,
         user._level,
         user._money,

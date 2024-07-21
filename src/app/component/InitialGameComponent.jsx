@@ -12,11 +12,18 @@ import { IoIosSave } from "react-icons/io";
 import { TbCookieManFilled } from "react-icons/tb";
 import Createuser from "./createuser/Createuser";
 
-const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUser, openUser }) => {
+const InitialGameComponent = ({
+  cookie,
+  player,
+  Setplayer,
+  handleUser,
+  SetOpenUser,
+  openUser,
+}) => {
   const [level, Setlevel] = useState(0);
   const [color, SetColor] = useState("bg-red-400");
   const [openStore, SetOpenStore] = useState(false);
-  const [openInventory, SetOpenInventory] = useState(false)
+  const [openInventory, SetOpenInventory] = useState(false);
 
   const oddCookie = () => {
     const updatePlayer = player.clickCookie(1);
@@ -26,7 +33,7 @@ const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUse
       Setlevel(Math.round(level + 10));
     }
 
-    console.log(player)
+    console.log(player);
 
     changeColor();
 
@@ -47,6 +54,19 @@ const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUse
     }
   };
 
+  const handleSaveUser = () => {
+    const storageUsers = JSON.parse(localStorage.getItem("users"));
+    const player_id = player._id;
+
+    const playerIndex = storageUsers.findIndex((p) => p._id === player_id);
+
+    if (playerIndex !== -1) {
+      storageUsers[playerIndex] = player;
+
+      localStorage.setItem("users", JSON.stringify(storageUsers));
+    }
+  };
+
   return (
     <main
       role="game-pad"
@@ -56,11 +76,23 @@ const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUse
       <section
         role="application"
         className="w-full flex items-center flex-col justify-center border-2 rounded-lg bg-slate-800 border-white relative overflow-hidden"
-        style={{background: player._gamepad.colors.screen}}
+        style={{ background: player._gamepad.colors.screen }}
       >
-        {openStore && <StoreComponent player={player} Setplayer={Setplayer} SetOpenStore={SetOpenStore}/>}
-        {openInventory && <Inventory player={player} Setplayer={Setplayer} SetOpenInventory={SetOpenInventory}/>}
-        {openUser && <Createuser handleUser={handleUser}/>}
+        {openStore && (
+          <StoreComponent
+            player={player}
+            Setplayer={Setplayer}
+            SetOpenStore={SetOpenStore}
+          />
+        )}
+        {openInventory && (
+          <Inventory
+            player={player}
+            Setplayer={Setplayer}
+            SetOpenInventory={SetOpenInventory}
+          />
+        )}
+        {openUser && <Createuser handleUser={handleUser} />}
 
         <div className="w-full h-2 bg-white relative rounded-md overflow-hidden">
           <div
@@ -94,20 +126,29 @@ const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUse
             <p className="">{ConvertCoins(player.money)}</p>
           </div>
 
-          <button className="text-xl text-white" onClick={() => SetOpenStore(true)}>
+          <button
+            className="text-xl text-white"
+            onClick={() => SetOpenStore(true)}
+          >
             <IoStorefront />
           </button>
 
-          <button className="text-xl text-white" onClick={() => SetOpenInventory(true)}>
-            <BsFillBackpack2Fill/>
+          <button
+            className="text-xl text-white"
+            onClick={() => SetOpenInventory(true)}
+          >
+            <BsFillBackpack2Fill />
           </button>
 
-          <button className="text-xl text-white" onClick={() => SetOpenUser(true)}>
-            <IoIosSave/>
+          <button className="text-xl text-white" onClick={handleSaveUser}>
+            <IoIosSave />
           </button>
 
-          <button className="text-xl text-white" onClick={() => SetOpenUser(true)}>
-            <TbCookieManFilled/>
+          <button
+            className="text-xl text-white"
+            onClick={() => SetOpenUser(true)}
+          >
+            <TbCookieManFilled />
           </button>
 
           <div className="flex items-center gap-2 text-white font-light">
@@ -124,27 +165,41 @@ const InitialGameComponent = ({ cookie, player, Setplayer, handleUser,SetOpenUse
         <div
           role="analogic"
           className="w-32 h-32 bg-zinc-800 rounded-full relative"
-          style={{background: player._joystick.colors.analogic}}
+          style={{ background: player._joystick.colors.analogic }}
         >
-          <div className="w-[50%] h-[50%] translate-x-[50%] translate-y-[50%]  bg-zinc-900 rounded-full absolute"
-          style={{background: player._joystick.colors.innerAnalogic}}></div>
+          <div
+            className="w-[50%] h-[50%] translate-x-[50%] translate-y-[50%]  bg-zinc-900 rounded-full absolute"
+            style={{ background: player._joystick.colors.innerAnalogic }}
+          ></div>
         </div>
         <div className="flex flex-col items-center justify-center w-32">
           <div className="flex items-center justify-center w-full">
-            <div className="bg-orange-600 w-10 h-10 rounded-full items-center justify-center flex" style={{background:player._joystick.colors.buttonY}}>
+            <div
+              className="bg-orange-600 w-10 h-10 rounded-full items-center justify-center flex"
+              style={{ background: player._joystick.colors.buttonY }}
+            >
               <p className="text-white">Y</p>
             </div>
           </div>
           <div className="flex items-center justify-between w-full">
-            <div className="bg-red-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:player._joystick.colors.buttonX}}>
+            <div
+              className="bg-red-700 w-10 h-10 rounded-full flex items-center justify-center"
+              style={{ background: player._joystick.colors.buttonX }}
+            >
               <p className="text-white">X</p>
             </div>
-            <div className="bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:player._joystick.colors.buttonB}}>
+            <div
+              className="bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center"
+              style={{ background: player._joystick.colors.buttonB }}
+            >
               <p className="text-white">B</p>
             </div>
           </div>
           <div className="flex items-center justify-center w-full">
-            <div className="bg-green-700 w-10 h-10 rounded-full flex items-center justify-center" style={{background:player._joystick.colors.buttonA}}>
+            <div
+              className="bg-green-700 w-10 h-10 rounded-full flex items-center justify-center"
+              style={{ background: player._joystick.colors.buttonA }}
+            >
               <p className="text-white">A</p>
             </div>
           </div>
