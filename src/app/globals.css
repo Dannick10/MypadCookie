@@ -9,6 +9,7 @@
 
 body {
   height: 100vh;
+  background-color: #b4dadc;
 }
 
 .life {
@@ -66,11 +67,16 @@ body {
   z-index: 20;
   animation: start 1.5s forwards linear;
   animation-iteration-count: 1;
+  visibility: hidden;
 }
 
 @keyframes start {
-
+  0%{
+    visibility: visible;
+    display: flex;
+  }
   100%{
+    visibility: hidden;
     display: none;
   }
 }
@@ -97,6 +103,7 @@ body {
 @keyframes itemsAnimation {
   0%{
     transform: rotate(-30deg);
+    display: block;
   }
 
   100%{

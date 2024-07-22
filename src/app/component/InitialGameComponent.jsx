@@ -71,12 +71,12 @@ const InitialGameComponent = ({
   return (
     <main
       role="game-pad"
-      className="flex flex-col justify-around w-96 h-full p-2 rounded-lg bg-amber-600 border-2 border-white overflow-hidden"
+      className="flex flex-col justify-around w-96 h-[75vh] max-h-[26em] gap-4 p-2 rounded-lg bg-amber-600 border-2 border-white overflow-hidden game"
       style={{ background: player._gamepad.colors.main }}
     >
       <section
         role="application"
-        className="w-full flex items-center flex-col justify-center border-2 rounded-lg bg-slate-800 border-white relative overflow-hidden"
+        className="w-full h-full flex items-center flex-col justify-center border-2 rounded-lg bg-slate-800 border-white relative overflow-hidden"
         style={{ background: player._gamepad.colors.screen }}
       >
         {openStore && (

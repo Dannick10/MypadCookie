@@ -39,7 +39,7 @@ export default function Home() {
 
 
   return (
-    <main className="flex flex-col items-center bg-slate-300 justify-between p-24 h-screen">
+    <main className="flex flex-col items-center bg-slate-300 justify-between p-24">
       <InitialGameComponent
         cookie={cookie}
         player={playersBanco}
