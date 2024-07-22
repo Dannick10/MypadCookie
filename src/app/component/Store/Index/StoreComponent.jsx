@@ -29,7 +29,7 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
     <div className="absolute min-h-full p-0.5  rounded-md text-white flex gap-2 overflow-auto w-full z-20 bg-gray-800 openstore">
       <div className="sticky top-0 -left-1 p-2 z-30 bg-gray-800">
         <button
-          className=" p-2 bg-red-700 rounded-md"
+          className=" p-2 bg-red-700 rounded-md btn"
           onClick={() => SetOpenStore(false)}
         >
           X
@@ -39,7 +39,7 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
         <p>{ConvertCoins(player.money)}</p>
         <div className="flex flex-col gap-2">
           <button
-            className="bg-lime-600 p-2 rounded-md"
+            className="bg-lime-600 p-2 rounded-md btn"
             value={"Gamepads"}
             onClick={() => dispatch({ type: "Gamepads" })}
             style={state.category == 'Gamepads' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}
@@ -47,7 +47,7 @@ const StoreComponent = ({ player, Setplayer, SetOpenStore }) => {
             Gamepads
           </button>
           <button
-            className="bg-teal-600 p-2 rounded-md"
+            className="bg-teal-600 p-2 rounded-md btn"
             value={"Joystick"}
             onClick={() => dispatch({ type: "Joystick" })}
             style={state.category == 'Joystick' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}

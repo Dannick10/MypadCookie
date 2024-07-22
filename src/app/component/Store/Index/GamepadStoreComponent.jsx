@@ -69,7 +69,9 @@ const GamepadStoreComponent = ({ items, player, Setplayer }) => {
           </>
         ) : (
           <button
-            className={`bg-orange-600 text-sm p-1 rounded-md ${items.id == player._gamepad.id && 'bg-blue-600'}`}
+            className={`text-sm p-1 rounded-md btn ${
+              items.id == player._gamepad.id ? "bg-blue-600" : "bg-orange-600"
+            }`}
             onClick={handleEquip}
             data-id={items.id}
             data-screen={items.colors.screen}
@@ -77,7 +79,7 @@ const GamepadStoreComponent = ({ items, player, Setplayer }) => {
             data-preco={items.preco}
             data-level={items.level}
           >
-            {items.id == player._gamepad.id ? 'Em uso' : 'Equipar'}
+            {items.id == player._gamepad.id ? "Em uso" : "Equipar"}
           </button>
         )}
         <p>{ConvertCoins(items.preco)}</p>

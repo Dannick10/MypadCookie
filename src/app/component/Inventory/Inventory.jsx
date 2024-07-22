@@ -31,7 +31,7 @@ const Inventory = ({ player, Setplayer, SetOpenInventory}) => {
     <div className="absolute min-h-full p-0.5 rounded-md text-white flex gap-2 overflow-auto w-full z-20 bg-gray-800 openstore">
       <div  className="sticky top-0 -left-1 p-2 z-30 bg-gray-800">
         <button
-          className=" p-2 bg-red-700 rounded-md"
+          className=" p-2 bg-red-700 rounded-md btn"
           onClick={() => SetOpenInventory(false)}
         >
           X
@@ -40,14 +40,14 @@ const Inventory = ({ player, Setplayer, SetOpenInventory}) => {
         <p>Seu Inventario</p>
         <div className="flex flex-col gap-2">
           <button
-            className="bg-lime-600 p-2 rounded-md transition-all"
+            className="bg-lime-600 p-2 rounded-md transition-all btn"
             onClick={() => dispatch({ type: "Gamepads" })}
             style={state.category == 'Gamepads' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}
           >
             Gamepads
           </button>
           <button
-            className="bg-teal-600 p-2 rounded-md transition-all"
+            className="bg-teal-600 p-2 rounded-md transition-all btn"
             onClick={() => dispatch({ type: "Joystick" })}
             style={state.category == 'Joystick' ? {border: '2px solid white', boxShadow: '1px 1px 1px white'}: { border: '0'}}
           >

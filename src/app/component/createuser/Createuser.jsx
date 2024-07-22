@@ -106,13 +106,13 @@ const Createuser = ({ handleUser }) => {
       )}
       <div className="flex gap-2">
         <button
-          className="text-lg border-2 rounded-md px-3 p-1"
+          className="text-lg border-2 rounded-md px-3 p-1 btn"
           onClick={() => dispatch({ type: "create" })}
         >
           +
         </button>
         <button
-          className="text-lg border-2 rounded-md px-3 p-1"
+          className="text-lg border-2 rounded-md px-3 p-1 btn"
           onClick={() => dispatch({ type: "exebition" })}
         >
           {" "}

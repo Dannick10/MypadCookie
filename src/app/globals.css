@@ -112,3 +112,8 @@ body {
 ::-webkit-scrollbar {
   background-color: #202020;
 }
+
+.btn:hover{
+  filter: brightness(120%);
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

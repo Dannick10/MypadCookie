@@ -84,7 +84,7 @@ const JoystickStoreComponent = ({ items, player, Setplayer }) => {
           </>
         ) : (
           <button
-          className={`bg-orange-600 text-sm p-1 rounded-md ${items.id == player._joystick.id && 'bg-blue-600'}`}
+          className={`text-sm p-1 rounded-md btn ${items.id == player._joystick.id ? 'bg-blue-600': 'bg-orange-600'}`}
             onClick={handleEquipeJoystick}
             data-id={items.id}
             data-analogic={items.colors.analogic}

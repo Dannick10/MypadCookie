@@ -27,7 +27,7 @@ const Users = ({ user, handleUser, handleDelete, modalView, SetmodalView, setUse
 
   return (
     <div
-      className="border-2 p-2 flex rounded-md bg-gray-500 gap-2"
+      className="border-2 p-2 flex rounded-md bg-gray-500 gap-2 "
       style={{ background: user._gamepad.colors.main }}
       key={user._id}
     >
@@ -61,21 +61,21 @@ const Users = ({ user, handleUser, handleDelete, modalView, SetmodalView, setUse
       </div>
       <div className="flex gap-2 flex-col">
         <button
-          className="bg-slate-700 p-2 rounded-md"
+          className="bg-slate-700 p-2 rounded-md btn"
           onClick={() => handleUser(user)}
           style={{ background: user._joystick.colors.buttonY }}
         >
           JOGAR
         </button>
         <button
-          className="bg-slate-700 p-2 rounded-md"
+          className="bg-slate-700 p-2 rounded-md btn"
           onClick={() => SetmodalView({view:true, id:user._id})}
           style={{ background: user._joystick.colors.buttonB }}
         >
           Edit
         </button>
         <button
-          className="bg-slate-700 p-2 rounded-md"
+          className="bg-slate-700 p-2 rounded-md btn"
           onClick={() => handleDelete(user)}
           style={{ background: user._joystick.colors.buttonA }}
         >
