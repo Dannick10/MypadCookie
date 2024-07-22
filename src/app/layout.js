@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content="Clique no seu biscoito e ganhe um console novo" />
         <meta name="keywords" content="biscoito, console, prêmio, jogo, diversão" />
         <meta name="author" content="Daniel Rocha" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
         <title>{metadata.title}</title>
       </head>
       <body className={inter.className}>{children}</body>

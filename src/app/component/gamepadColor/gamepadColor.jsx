@@ -18,12 +18,12 @@ const GamepadColor = ({ main, screen, items }) => {
   return (
     <div
       role="game-pad"
-      className="flex flex-col justify-around w-40 h-40 border-2 border-white p-2 rounded-lg overflow-hidden"
+      className="flex flex-col justify-around w-40 h-42 border-2 border-white p-2 gap-2 rounded-lg overflow-hidden"
       style={{ background: color.main }}
     >
       <section
         role="application"
-        className="w-full flex items-center flex-col justify-between  border-2 border-white rounded-lg relative h-28"
+        className="w-full flex items-center flex-col justify-between  border-2 border-white rounded-lg relative h-24"
         style={{ background: color.screen }}
       >
         <div className="w-full h-1 top-0 bg-white relative rounded-md overflow-hidden">
