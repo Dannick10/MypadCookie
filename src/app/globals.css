@@ -65,6 +65,7 @@ body {
   background-color: #203040;
   z-index: 20;
   animation: start 1.5s forwards linear;
+  animation-iteration-count: 1;
 }
 
 @keyframes start {
