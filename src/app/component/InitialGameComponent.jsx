@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Cookiepot from "../../../public/Cookiepot.svg";
 import ConvertCoins from "../../../functions/ConvertCoins";
@@ -95,7 +95,10 @@ const InitialGameComponent = ({
         )}
         {openUser && <Createuser handleUser={handleUser} />}
         <div className="start flex items-center justify-center gap-2">
-          <h1 className="text-xl font-bold text-pink-400"><span className="text-blue-400">My</span> <span className="text-xl text-white">pad</span>Cookie</h1>
+          <h1 className="text-xl font-bold text-pink-400">
+            <span className="text-blue-400">My</span>{" "}
+            <span className="text-xl text-white">pad</span>Cookie
+          </h1>
           <div className="loader"></div>
         </div>
 
@@ -135,7 +138,9 @@ const InitialGameComponent = ({
             className="text-xl text-white itemsAnimation relative"
             onClick={() => SetOpenStore(true)}
           >
-            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">LOJA</span>
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">
+              LOJA
+            </span>
             <IoStorefront />
           </button>
 
@@ -143,12 +148,19 @@ const InitialGameComponent = ({
             className="text-xl text-white itemsAnimation"
             onClick={() => SetOpenInventory(true)}
           >
-            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">Inventario</span>
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">
+              Inventario
+            </span>
             <BsFillBackpack2Fill />
           </button>
 
-          <button className="text-xl text-white itemsAnimation" onClick={handleSaveUser}>
-            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">Salvar</span>
+          <button
+            className="text-xl text-white itemsAnimation"
+            onClick={handleSaveUser}
+          >
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">
+              Salvar
+            </span>
             <IoIosSave />
           </button>
 
@@ -156,7 +168,9 @@ const InitialGameComponent = ({
             className="text-xl text-white itemsAnimation"
             onClick={() => SetOpenUser(true)}
           >
-            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">Jogadores</span>
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">
+              Jogadores
+            </span>
             <TbCookieManFilled />
           </button>
 
