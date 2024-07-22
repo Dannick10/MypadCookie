@@ -31,7 +31,6 @@ const Users = ({ user, handleUser, handleDelete, modalView, SetmodalView, setUse
       style={{ background: user._gamepad.colors.main }}
       key={user._id}
     >
-      
       {modalView.view && modalView.id == user._id && 
       <div className="absolute left-0 top-0 z-40 w-full h-full ">
       <Modal 

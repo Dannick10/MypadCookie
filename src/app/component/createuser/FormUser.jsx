@@ -4,6 +4,9 @@ import { TbCookieManFilled } from "react-icons/tb";
 const FormUser = ({user,Setuser,handleSubmit}) => {
   return (
     <form onSubmit={handleSubmit}>
+      <h2>
+        Criar seu biscoito
+      </h2>
         <label
           htmlFor="search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -18,7 +21,7 @@ const FormUser = ({user,Setuser,handleSubmit}) => {
             type="text"
             id="criar"
             className="block w-full p-4 ps-10 text-xm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500  focus:outline-gray-600"
-            placeholder="nome do seu Cookie"
+            placeholder="Escolha um apelido"
             value={user}
             onChange={(e) => Setuser(e.target.value)}
             autoComplete='off'

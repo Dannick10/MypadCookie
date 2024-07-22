@@ -62,7 +62,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #202020;
+  background-color: #203040;
   z-index: 20;
   animation: start 1.5s forwards linear;
 }
@@ -80,6 +80,26 @@ body {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+.itemsAnimation:hover {
+  animation: 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) alternate infinite itemsAnimation;
+  transition: 0.s;
+  filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.3));
+}
+
+.itemsAnimation:hover > span {
+  display: block;
+}
+
+@keyframes itemsAnimation {
+  0%{
+    transform: rotate(-30deg);
+  }
+
+  100%{
+    transform: rotate(15deg);
   }
 }
 

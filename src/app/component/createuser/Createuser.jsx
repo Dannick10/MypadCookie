@@ -85,6 +85,7 @@ const Createuser = ({ handleUser }) => {
     <div className="absolute min-h-full p-2  rounded-md text-white flex flex-col justify-between gap-2 overflow-auto w-full z-20 bg-gray-800">
       {state.main == "exebition" && (
         <div className="flex flex-col h-44 gap-1 overflow-auto">
+             <h2>Todos os seus biscoitos</h2>
           {users &&
             users.map((user) => (
               <Users

@@ -132,27 +132,31 @@ const InitialGameComponent = ({
           </div>
 
           <button
-            className="text-xl text-white"
+            className="text-xl text-white itemsAnimation relative"
             onClick={() => SetOpenStore(true)}
           >
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">LOJA</span>
             <IoStorefront />
           </button>
 
           <button
-            className="text-xl text-white"
+            className="text-xl text-white itemsAnimation"
             onClick={() => SetOpenInventory(true)}
           >
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">Inventario</span>
             <BsFillBackpack2Fill />
           </button>
 
-          <button className="text-xl text-white" onClick={handleSaveUser}>
+          <button className="text-xl text-white itemsAnimation" onClick={handleSaveUser}>
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">Salvar</span>
             <IoIosSave />
           </button>
 
           <button
-            className="text-xl text-white"
+            className="text-xl text-white itemsAnimation"
             onClick={() => SetOpenUser(true)}
           >
+            <span className="absolute -top-6 left-0 text-xs border-2 p-0.5 rounded-md hidden">Jogadores</span>
             <TbCookieManFilled />
           </button>
 
