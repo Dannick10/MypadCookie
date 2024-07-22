@@ -23,6 +23,11 @@ const Createuser = ({ handleUser }) => {
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    if(storedUsers){
+      dispatch({type: 'exebition'})
+    }
+
     setUsers(storedUsers);
   }, []);
 

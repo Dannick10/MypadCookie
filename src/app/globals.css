@@ -2,39 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   height: 100vh;
 }
 
-.life{
+.life {
   transition: 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  
 }
 
-.openstore{
+.openstore {
   animation: 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards openstore;
 }
 
+
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  display: grid;
+  grid: 50%/50%;
+  color: #ffa516; 
+  border-radius: 50%;
+  --_g: no-repeat linear-gradient(currentColor 0 0);
+  background: var(--_g),var(--_g),var(--_g);
+  background-size: 50.1% 50.1%;
+  animation: 
+    l9-0   1.5s infinite steps(1) alternate,
+    l9-0-0 3s   infinite steps(1) alternate;
+}
+.loader::before {
+  content: "";
+  background: currentColor;
+  border-top-left-radius: 100px;
+  transform: perspective(150px) rotateY(0deg) rotateX(0deg);
+  transform-origin: bottom right; 
+  animation: l9-1 1.5s infinite linear alternate;
+}
+@keyframes l9-0 {
+  0%  {background-position: 0    100%,100% 100%,100% 0}
+  33% {background-position: 100% 100%,100% 100%,100% 0}
+  66% {background-position: 100% 0   ,100% 0   ,100% 0}
+}
+@keyframes l9-0-0 {
+  0%  {transform: scaleX(1)  rotate(0deg)}
+  50% {transform: scaleX(-1) rotate(-90deg)}
+}
+@keyframes l9-1 {
+  16.5%{transform:perspective(150px) rotateX(-90deg)  rotateY(0deg)    rotateX(0deg);filter:grayscale(0.8)}
+  33%  {transform:perspective(150px) rotateX(-180deg) rotateY(0deg)    rotateX(0deg)}
+  66%  {transform:perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(0deg)}
+  100% {transform:perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(-180deg);filter:grayscale(0.8)}
+}
+
+.start {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #202020;
+  z-index: 20;
+  animation: start 1.5s forwards linear;
+}
+
+@keyframes start {
+
+  100%{
+    display: none;
+  }
+}
+
 @keyframes openstore {
-  0%{
+  0% {
     transform: translateY(100%);
   }
-  100%{
+  100% {
     transform: translateY(0);
   }
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: #102030;
   border: 1px solid white;
   width: 10em;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   background-color: #202020;
 }

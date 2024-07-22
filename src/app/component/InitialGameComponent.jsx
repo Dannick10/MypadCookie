@@ -10,6 +10,7 @@ import { IoStorefront } from "react-icons/io5";
 import { BsFillBackpack2Fill } from "react-icons/bs";
 import { IoIosSave } from "react-icons/io";
 import { TbCookieManFilled } from "react-icons/tb";
+import { FaCookie } from "react-icons/fa";
 import Createuser from "./createuser/Createuser";
 
 const InitialGameComponent = ({
@@ -93,6 +94,10 @@ const InitialGameComponent = ({
           />
         )}
         {openUser && <Createuser handleUser={handleUser} />}
+        <div className="start flex items-center justify-center gap-2">
+          <h1 className="text-xl font-bold text-pink-400"><span className="text-blue-400">My</span> <span className="text-xl text-white">pad</span>Cookie</h1>
+          <div className="loader"></div>
+        </div>
 
         <div className="w-full h-2 bg-white relative rounded-md overflow-hidden">
           <div
