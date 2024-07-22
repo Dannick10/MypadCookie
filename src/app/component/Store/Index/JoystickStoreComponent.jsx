@@ -84,7 +84,7 @@ const JoystickStoreComponent = ({ items, player, Setplayer }) => {
           </>
         ) : (
           <button
-            className="bg-orange-600 text-sm p-1 rounded-md"
+          className={`bg-orange-600 text-sm p-1 rounded-md ${items.id == player._joystick.id && 'bg-blue-600'}`}
             onClick={handleEquipeJoystick}
             data-id={items.id}
             data-analogic={items.colors.analogic}
@@ -96,7 +96,7 @@ const JoystickStoreComponent = ({ items, player, Setplayer }) => {
             data-preco={items.preco}
             data-level={items.level}
           >
-            Equipar
+               {items.id == player._joystick.id ? 'Em uso' : 'Equipar'}
           </button>
         )}
         <p>{ConvertCoins(items.preco)}</p>
