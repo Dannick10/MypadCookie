@@ -42,14 +42,14 @@ const Users = ({ user, handleUser, handleDelete, modalView, SetmodalView, setUse
        </div>
       }
 
-      <div className="flex justify-between gap-4">
+      <div className="flex justify-between gap-4dd">
         <div className="flex flex-col items-center text-sm">
           <span>Nome</span>
-          <p>{user._name}</p>
+          <p  className="text-ellipsis whitespace-nowrap overflow-hidden max-w-16">{user._name}</p>
           <span>Level</span>
-          <p>{user._level.toFixed(1)}</p>
+          <p  className="text-ellipsis whitespace-nowrap overflow-hidden max-w-16">{user._level.toFixed(1)}</p>
           <span>Money</span>
-          <p>{ConvertCoins(user._money)}</p>
+          <p className="text-ellipsis whitespace-nowrap overflow-hidden max-w-16">{ConvertCoins(user._money)}</p>
         </div>
         <div>
           <GamepadColor

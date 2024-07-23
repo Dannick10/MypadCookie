@@ -26,6 +26,7 @@ const FormUser = ({user,Setuser,handleSubmit}) => {
             onChange={(e) => Setuser(e.target.value)}
             autoComplete='off'
             required
+            maxLength={15}
           />
           <button
             type="submit"
