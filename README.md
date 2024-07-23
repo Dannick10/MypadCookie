@@ -14,9 +14,8 @@ MyPadCookie é um jogo desenvolvido por mim para treinar habilidades de orienta�
 |-----------------|-----------|
 | **Loja**        | Compre itens para personalizar seu jogo e melhorar a experiência. |
 | **Níveis**      | Ganhe mais dinheiro conforme sobe de nível, com a dificuldade aumentando à medida que você avança. |
-| **Customização**| Personalize seus biscoitos e outros itens no jogo. |
+| **Customização**| Personalize seu gamepad e joystick. |
 | **Inventário**  | Armazene e gerencie tudo o que você compra. |
-| **Usuarios** | Crie e gerencie seus usuarios |
 | **LocalStorage**| Salve e gerencie seus dados de usuário localmente. |
 
 ## Tecnologias Utilizadas
