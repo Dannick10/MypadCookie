@@ -107,7 +107,7 @@ export default class Player {
     let ranger = 80;
 
     if (this.quantityCookie % 5 == 1) {
-      updateMoney += Math.round(this._money + this._level) / ranger;
+      updateMoney += Math.round(this._level) / ranger;
     }
 
     if (this.quantityCookie % Math.floor(10 + this._level) == 1) {
