@@ -91,8 +91,8 @@ body {
 }
 
 .itemsAnimation:hover {
-  animation: 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) alternate infinite itemsAnimation;
-  transition: 0.s;
+  animation: 0.4s cubic-bezier(0.77, 0, 0.175, 1) alternate infinite itemsAnimation;
+  transition: 2.s;
   filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.3));
 }
 
@@ -102,12 +102,34 @@ body {
 
 @keyframes itemsAnimation {
   0%{
-    transform: rotate(-30deg);
+    transform: rotate(-10deg);
     display: block;
   }
 
   100%{
-    transform: rotate(15deg);
+    transform: rotate(10deg);
+  }
+}
+
+.itemsAnimation2:hover {
+  animation: 0.1s cubic-bezier(0.39, 0.575, 0.565, 1) alternate itemsAnimation2;
+  animation-iteration-count: 4;
+  transition: 5.s;
+  filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.3));
+}
+
+.itemsAnimation2:hover > span {
+  display: block;
+}
+
+@keyframes itemsAnimation2 {
+  0%{
+    transform: rotate(-5deg);
+    display: block;
+  }
+
+  100%{
+    transform: rotate(5deg);
   }
 }
 

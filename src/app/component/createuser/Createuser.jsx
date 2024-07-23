@@ -2,7 +2,9 @@ import React, { useReducer, useState, useEffect } from "react";
 import FormUser from "./FormUser";
 import Users from "./Users";
 import { TbCookieManFilled } from "react-icons/tb";
+import { FaGithubAlt } from "react-icons/fa";
 import Player from "@/models/Player";
+import Link from "next/link";
 
 const initalState = { main: "create" };
 
@@ -82,7 +84,7 @@ const Createuser = ({ handleUser }) => {
   };
 
   return (
-    <div className="absolute min-h-full p-2  rounded-md text-white flex flex-col justify-between gap-2 overflow-auto w-full z-20 bg-gray-800">
+    <div className="absolute min-h-full p-2  rounded-md text-white flex flex-col justify-between gap-2 w-full z-20 bg-gray-800 overflow-hidden">
       {state.main == "exebition" && (
         <div className="flex flex-col h-44 gap-1 overflow-auto">
              <h2>Todos os seus biscoitos</h2>
@@ -106,18 +108,29 @@ const Createuser = ({ handleUser }) => {
       )}
       <div className="flex gap-2">
         <button
-          className="text-lg border-2 rounded-md px-3 p-1 btn"
+          className={`text-lg border-2 rounded-md px-3 p-1 btn itemsAnimation2 ${state.main == 'create' ? 'bg-gray-950' : 'bg-none' }`}
           onClick={() => dispatch({ type: "create" })}
         >
+          <span className="absolute hidden -top-7 left-0 text-sm min-w-32">Criar biscoito</span>
           +
         </button>
         <button
-          className="text-lg border-2 rounded-md px-3 p-1 btn"
+            className={`text-lg border-2 rounded-md px-3 p-1 btn itemsAnimation2 ${state.main == 'exebition' ? 'bg-gray-950' : 'bg-none' }`}
           onClick={() => dispatch({ type: "exebition" })}
         >
           {" "}
+          <span className="absolute hidden -top-7 left-0 text-sm min-w-32">Escolher biscoito</span>
           <TbCookieManFilled className="" />
         </button>
+        <Link href={'https://github.com/Dannick10/MypadCookie'} target="_blank" alt="Link do codigo">
+        <button
+          className="text-lg border-2 rounded-md px-3 p-1 btn h-full itemsAnimation2"
+          >
+          <span className="absolute hidden -top-7 left-0 text-sm min-w-32">Link do codigo</span>
+          {" "}
+          <FaGithubAlt className="" />
+        </button>
+          </Link>
        
       </div>
     </div>
