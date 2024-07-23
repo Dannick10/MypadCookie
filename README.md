@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# MyPadCookie
 
-First, run the development server:
+<img src="https://github.com/user-attachments/assets/3b75d70d-22dd-4838-a18a-2c8016e16f9f" alt="mypad" width="100" height="100" />
+<img src="https://github.com/user-attachments/assets/2a2e7d56-dc56-4f57-9fc6-48b94f1104e7" alt="mypad" width="100" height="100" />
+<img src="https://github.com/user-attachments/assets/f03c5606-07e8-41bb-8005-5a60e2c66389" alt="mypad" width="100" height="100"  />
+<img src="https://github.com/user-attachments/assets/35d1a890-547e-499c-9722-abe952feae12" alt="mypad" width="100" height="100"  />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+MyPadCookie é um jogo desenvolvido por mim para treinar habilidades de orientação a objetos. No jogo, você interage com um biscoito para ganhar dinheiro e evoluir seu nível, personalizando seu jogo e gerenciando itens através de um sistema de inventário.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Funcionalidades
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+| Funcionalidade  | Descrição |
+|-----------------|-----------|
+| **Loja**        | Compre itens para personalizar seu jogo e melhorar a experiência. |
+| **Níveis**      | Ganhe mais dinheiro conforme sobe de nível, com a dificuldade aumentando à medida que você avança. |
+| **Customização**| Personalize seus biscoitos e outros itens no jogo. |
+| **Inventário**  | Armazene e gerencie tudo o que você compra. |
+| **Usuarios** | Crie e gerencie seus usuarios |
+| **LocalStorage**| Salve e gerencie seus dados de usuário localmente. |
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tecnologias Utilizadas
 
-## Learn More
+- JavaScript
+- Nextjs
+- TailwindCSS
+- LocalStorage
+## Instalação
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/mypadcookie.git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Licença
+Este projeto está licenciado sob a Licença MIT.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
