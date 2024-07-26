@@ -10,7 +10,6 @@ import { IoStorefront } from "react-icons/io5";
 import { BsFillBackpack2Fill } from "react-icons/bs";
 import { IoIosSave } from "react-icons/io";
 import { TbCookieManFilled } from "react-icons/tb";
-import { FaCookie } from "react-icons/fa";
 import Createuser from "./createuser/Createuser";
 
 const InitialGameComponent = ({
@@ -26,21 +25,22 @@ const InitialGameComponent = ({
   const [openStore, SetOpenStore] = useState(false);
   const [openInventory, SetOpenInventory] = useState(false);
 
+  const getFractionalPart = (num) => {
+    const numStr = num.toString();
+    const parts = numStr.split(".");
+    return parts.length > 1 ? parts[1].split("")[0] : "0";
+  };
+
   const oddCookie = () => {
     const updatePlayer = player.clickCookie(1);
     Setplayer(player.clickCookie(1));
 
-    if (player.quantityCookie % Math.floor(10 + player._level) == 1) {
-      Setlevel(Math.round(level + 10));
-    }
+    let newLevel = player._level.toString();
 
-    console.log(player);
+    Setlevel(getFractionalPart(newLevel) + "0");
 
     changeColor();
-
-    if (level >= 100) {
-      Setlevel(0);
-    }
+    handleSaveUser();
   };
 
   const changeColor = () => {
