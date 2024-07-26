@@ -104,7 +104,7 @@ export default class Player {
   clickCookie = (val) => {
     let updateMoney = this._money;
     let updateLevel = this._level;
-    let ranger = 80;
+    let ranger = 10;
 
     if (this.quantityCookie % 5 == 1) {
       updateMoney += Math.round(this._level) / ranger;

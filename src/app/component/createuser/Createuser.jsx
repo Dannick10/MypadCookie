@@ -81,6 +81,8 @@ const Createuser = ({ handleUser }) => {
     setUsers(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
     Setuser("");
+
+    dispatch({type: 'exebition'})
   };
 
   return (
